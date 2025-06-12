@@ -1,12 +1,16 @@
-import { StyleSheet, Text, View, TextInput} from 'react-native';
+import { StyleSheet, Text, View, TextInput, ImageBackground} from 'react-native';
+import { useState } from 'react';
+
 
 export default function MainScreen() {
   return (
     <>
     <View style={[styles.toolbar]}>
         <View style={[styles.container,{flexDirection: 'row'}]}>
+
+            
             <View style={[styles.cardSettings]}>
-                <Text style={[styles.header]}>Configurações da Carta</Text>
+                <Text style={[styles.header]}>General Settings</Text>
                 <Text>Card Name</Text>
                 <TextInput style={[styles.inputBox]}></TextInput>
                 <Text>Card Info</Text>
@@ -18,7 +22,14 @@ export default function MainScreen() {
                 <Text>Card Date</Text>
                 <TextInput style={[styles.inputBox]}></TextInput>
             </View>
-            <View style={{flex: 2, backgroundColor: 'darkblue'}} />
+
+
+            <View style={{flex: 2, backgroundColor: 'darkblue', paddingLeft: 60}}>
+                <ImageBackground style={styles.card} source={require('../assets/template.png')} resizeMode='contain'>
+                </ImageBackground>    
+            </View>
+
+
         </View>
     </View>
     </>
@@ -50,5 +61,9 @@ const styles = StyleSheet.create({
         gap: 12,
         padding: 24,
         paddingTop: '10%',
+    },
+    card: {
+        justifyContent: 'space-between',
+        padding: 16,
     },
 });
