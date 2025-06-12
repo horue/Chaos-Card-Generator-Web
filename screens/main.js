@@ -3,20 +3,26 @@ import { useState } from 'react';
 
 
 export default function MainScreen() {
+    const [name, setName] = useState(' ');
+    const [effect, setEffect] = useState(' ');
+
+
   return (
     <>
     <View style={[styles.toolbar]}>
         <View style={[styles.container,{flexDirection: 'row'}]}>
 
-            
+
             <View style={[styles.cardSettings]}>
                 <Text style={[styles.header]}>General Settings</Text>
                 <Text>Card Name</Text>
+                <TextInput style={[styles.inputBox]} onChangeText={setName} value={name}></TextInput>
+                <Text>Card Rank</Text>
                 <TextInput style={[styles.inputBox]}></TextInput>
                 <Text>Card Info</Text>
                 <TextInput style={[styles.inputBox]}></TextInput>
                 <Text>Card Effect</Text>
-                <TextInput multiline numberOfLines={4} style={[styles.inputBox]}></TextInput>
+                <TextInput multiline numberOfLines={4} style={[styles.inputBox]} onChangeText={setEffect} value={effect}></TextInput>
                 <Text>Card ID</Text>
                 <TextInput style={[styles.inputBox]}></TextInput>
                 <Text>Card Date</Text>
@@ -26,6 +32,8 @@ export default function MainScreen() {
 
             <View style={{flex: 2, backgroundColor: 'darkblue', paddingLeft: 60}}>
                 <ImageBackground style={styles.card} source={require('../assets/template.png')} resizeMode='contain'>
+                    <Text style={{paddingLeft: 28, paddingTop: 35, fontSize: 38, color:'white', backgroundColor: 'black'}}>{name}</Text>
+                    <Text style={{paddingLeft: 39, paddingTop: 566, fontSize: 28, color:'white'}}>{effect}</Text>
                 </ImageBackground>    
             </View>
 
