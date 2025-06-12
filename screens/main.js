@@ -1,10 +1,13 @@
-import { StyleSheet, Text, View, TextInput, ImageBackground} from 'react-native';
+import { StyleSheet, Text, View, TextInput, ImageBackground, Image} from 'react-native';
 import { useState } from 'react';
 
 
 export default function MainScreen() {
     const [name, setName] = useState(' ');
     const [effect, setEffect] = useState(' ');
+    const [rank, setRank] = useState(' ');
+    
+
 
 
   return (
@@ -18,7 +21,7 @@ export default function MainScreen() {
                 <Text>Card Name</Text>
                 <TextInput style={[styles.inputBox]} onChangeText={setName} value={name}></TextInput>
                 <Text>Card Rank</Text>
-                <TextInput style={[styles.inputBox]}></TextInput>
+                <TextInput style={[styles.inputBox]} onChangeText={setRank} value={rank}></TextInput>
                 <Text>Card Info</Text>
                 <TextInput style={[styles.inputBox]}></TextInput>
                 <Text>Card Effect</Text>
@@ -32,8 +35,10 @@ export default function MainScreen() {
 
             <View style={{flex: 2, backgroundColor: 'darkblue', paddingLeft: 60}}>
                 <ImageBackground style={styles.card} source={require('../assets/template.png')} resizeMode='contain'>
-                    <Text style={{paddingLeft: 28, paddingTop: 35, fontSize: 38, color:'white', backgroundColor: 'black'}}>{name}</Text>
-                    <Text style={{paddingLeft: 39, paddingTop: 566, fontSize: 28, color:'white'}}>{effect}</Text>
+                    <Text style={[styles.name]}>{name}</Text>
+                    <Text style={[styles.rank]}>{rank}</Text>
+                    <Text style={[styles.effect]}>{effect}</Text>
+                    <Text style={[styles.power]}>{power}</Text>
                 </ImageBackground>    
             </View>
 
@@ -73,5 +78,38 @@ const styles = StyleSheet.create({
     card: {
         justifyContent: 'space-between',
         padding: 16,
+        position: 'relative',
+    },
+    name: {
+        position: 'absolute',
+        top: 54,
+        left: 33,
+        fontSize: 41,
+        color: 'white',
+        fontFamily: 'Mongolian Baiti'
+    },
+    rank: {
+        position: 'absolute',
+        top: 48,
+        left: 636,
+        fontSize: 57,
+        color: 'white',
+        fontFamily: 'Mongolian Baiti'
+    },
+    power: {
+        position: 'absolute',
+        top: 48,
+        left: 636,
+        fontSize: 57,
+        color: 'white',
+        fontFamily: 'Mongolian Baiti'
+    },
+    effect: {
+        position: 'absolute',
+        top: 672,
+        left: 49,
+        fontSize: 26,
+        color: 'white',
+        fontFamily: 'Mongolian Baiti'
     },
 });
