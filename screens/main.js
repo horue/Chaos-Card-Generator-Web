@@ -6,6 +6,8 @@ export default function MainScreen() {
     const [name, setName] = useState(' ');
     const [effect, setEffect] = useState(' ');
     const [rank, setRank] = useState(' ');
+    const [power, setPower] = useState(' ');
+
     
 
 
@@ -26,6 +28,8 @@ export default function MainScreen() {
                 <TextInput style={[styles.inputBox]}></TextInput>
                 <Text>Card Effect</Text>
                 <TextInput multiline numberOfLines={4} style={[styles.inputBox]} onChangeText={setEffect} value={effect}></TextInput>
+                <Text>Card Power</Text>
+                <TextInput style={[styles.inputBox]} onChangeText={setPower} value={power}></TextInput>
                 <Text>Card ID</Text>
                 <TextInput style={[styles.inputBox]}></TextInput>
                 <Text>Card Date</Text>
@@ -98,16 +102,16 @@ const styles = StyleSheet.create({
     },
     power: {
         position: 'absolute',
-        top: 48,
-        left: 636,
-        fontSize: 57,
+        top: 911,
+        left: 639,
+        fontSize: 50,
         color: 'white',
         fontFamily: 'Mongolian Baiti'
     },
     effect: {
         position: 'absolute',
-        top: 672,
-        left: 49,
+        top: 674,
+        left: 51,
         fontSize: 26,
         color: 'white',
         fontFamily: 'Mongolian Baiti'
