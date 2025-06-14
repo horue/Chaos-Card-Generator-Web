@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, ImageBackground, Image} from 'react-native';
+import { StyleSheet, Text, View, TextInput, ImageBackground, Image, ScrollView} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useState } from 'react';
 
@@ -26,32 +26,34 @@ export default function MainScreen() {
         <View style={[styles.container,{flexDirection: 'row'}]}>
 
 
-            <View style={[styles.cardSettings]}>
-                <Text style={[styles.header]}>General Settings</Text>
-                <Text>Card Element</Text>
-                <DropDownPicker
-                open={open}
-                value={value}
-                items={items}
-                setOpen={setOpen}
-                setValue={setValue}
-                setItems={setItems}
-                />
-                <Text>Card Name</Text>
-                <TextInput style={[styles.inputBox]} onChangeText={setName} value={name}></TextInput>
-                <Text>Card Rank</Text>
-                <TextInput style={[styles.inputBox]} onChangeText={setRank} value={rank}></TextInput>
-                <Text>Card Info</Text>
-                <TextInput style={[styles.inputBox]}></TextInput>
-                <Text>Card Effect</Text>
-                <TextInput multiline numberOfLines={4} style={[styles.inputBox]} onChangeText={setEffect} value={effect}></TextInput>
-                <Text>Card Power</Text>
-                <TextInput style={[styles.inputBox]} onChangeText={setPower} value={power}></TextInput>
-                <Text>Card ID</Text>
-                <TextInput style={[styles.inputBox]}></TextInput>
-                <Text>Card Date</Text>
-                <TextInput style={[styles.inputBox]}></TextInput>
-            </View>
+            <ScrollView style={[styles.cardSettings]}>
+                <View style={[styles.innerContainer]}>
+                    <Text style={[styles.header]}>General Settings</Text>
+                    <Text>Card Element</Text>
+                    <DropDownPicker
+                    open={open}
+                    value={value}
+                    items={items}
+                    setOpen={setOpen}
+                    setValue={setValue}
+                    setItems={setItems}
+                    />
+                    <Text>Card Name</Text>
+                    <TextInput style={[styles.inputBox]} onChangeText={setName} value={name}></TextInput>
+                    <Text>Card Rank</Text>
+                    <TextInput style={[styles.inputBox]} onChangeText={setRank} value={rank}></TextInput>
+                    <Text>Card Info</Text>
+                    <TextInput style={[styles.inputBox]}></TextInput>
+                    <Text>Card Effect</Text>
+                    <TextInput multiline numberOfLines={4} style={[styles.inputBox]} onChangeText={setEffect} value={effect}></TextInput>
+                    <Text>Card Power</Text>
+                    <TextInput style={[styles.inputBox]} onChangeText={setPower} value={power}></TextInput>
+                    <Text>Card ID</Text>
+                    <TextInput style={[styles.inputBox]}></TextInput>
+                    <Text>Card Date</Text>
+                    <TextInput style={[styles.inputBox]}></TextInput>
+                </View>
+            </ScrollView>
 
 
             <View style={{flex: 2, backgroundColor: 'darkblue', paddingLeft: 60}}>
@@ -88,13 +90,20 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderRadius: 6,
         borderWidth: 1,
+        height: 48,
+    },
+    innerContainer: {
+        padding: 34,
+        gap: 14,
+        backgroundColor: 'gray',
+        borderRadius: 5
     },
     cardSettings:{
         flex: 1,
         backgroundColor: 'white',
-        gap: 12,
+        gap: 24,
         padding: 24,
-        paddingTop: '10%',
+        paddingTop: '5%',
     },
     card: {
         justifyContent: 'space-between',
