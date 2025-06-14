@@ -28,7 +28,9 @@ export default function MainScreen() {
 
             <ScrollView style={[styles.cardSettings]}>
                 <View style={[styles.innerContainer]}>
-                    <Text style={[styles.header]}>General Settings</Text>
+
+                    <Text style={[styles.header]}>Card Type</Text>
+
                     <Text>Card Element</Text>
                     <DropDownPicker
                     open={open}
@@ -38,18 +40,37 @@ export default function MainScreen() {
                     setValue={setValue}
                     setItems={setItems}
                     />
+
+                    <Text style={[styles.header]}>Basics</Text>
+
                     <Text>Card Name</Text>
                     <TextInput style={[styles.inputBox]} onChangeText={setName} value={name}></TextInput>
+
+
                     <Text>Card Rank</Text>
                     <TextInput style={[styles.inputBox]} onChangeText={setRank} value={rank}></TextInput>
+
+
+
+                    <Text style={[styles.header]}>Effect/Power</Text>
+
                     <Text>Card Info</Text>
                     <TextInput style={[styles.inputBox]}></TextInput>
+
+
                     <Text>Card Effect</Text>
                     <TextInput multiline numberOfLines={4} style={[styles.inputBox]} onChangeText={setEffect} value={effect}></TextInput>
+
+
                     <Text>Card Power</Text>
                     <TextInput style={[styles.inputBox]} onChangeText={setPower} value={power}></TextInput>
+
+                    <Text style={[styles.header]}>Card Info</Text>
+
                     <Text>Card ID</Text>
                     <TextInput style={[styles.inputBox]}></TextInput>
+
+
                     <Text>Card Date</Text>
                     <TextInput style={[styles.inputBox]}></TextInput>
                 </View>
