@@ -91,12 +91,13 @@ const styles = StyleSheet.create({
         borderRadius: 6,
         borderWidth: 1,
         height: 48,
+        backgroundColor: 'white',
     },
     innerContainer: {
         padding: 34,
         gap: 14,
-        backgroundColor: 'gray',
-        borderRadius: 5
+        backgroundColor: '#ebf1ff',
+        borderRadius: 20
     },
     cardSettings:{
         flex: 1,
