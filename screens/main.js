@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, TextInput, ImageBackground, Image} from 'react-native';
+import DropDownPicker from 'react-native-dropdown-picker';
 import { useState } from 'react';
 
 
@@ -7,6 +8,13 @@ export default function MainScreen() {
     const [effect, setEffect] = useState(' ');
     const [rank, setRank] = useState(' ');
     const [power, setPower] = useState(' ');
+
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState(null);
+    const [items, setItems] = useState([
+        {label: '1', value: '1'},
+        {label: '2', value: '2'}
+    ]);
 
     
 
@@ -20,6 +28,15 @@ export default function MainScreen() {
 
             <View style={[styles.cardSettings]}>
                 <Text style={[styles.header]}>General Settings</Text>
+                <Text>Card Element</Text>
+                <DropDownPicker
+                open={open}
+                value={value}
+                items={items}
+                setOpen={setOpen}
+                setValue={setValue}
+                setItems={setItems}
+                />
                 <Text>Card Name</Text>
                 <TextInput style={[styles.inputBox]} onChangeText={setName} value={name}></TextInput>
                 <Text>Card Rank</Text>
