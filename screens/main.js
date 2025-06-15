@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TextInput, ImageBackground, CheckBox, ScrollView} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useState } from 'react';
-
+import { StrokedText } from '../components/strokedtext';
 import { CustomButton } from '../components/button';
 
 
@@ -17,8 +17,8 @@ export default function MainScreen() {
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState(null);
     const [items, setItems] = useState([
-        {label: '1', value: '1'},
-        {label: '2', value: '2'}
+        {label: 'Test Template', value: 'template'},
+        {label: 'Nameless', value: 'ps_template'}
     ]);
 
     const clearAll = () => {
@@ -117,11 +117,11 @@ export default function MainScreen() {
 
 
             <View style={{flex: 2, backgroundColor: 'darkblue', paddingLeft: 60}}>
-                <ImageBackground style={styles.card} source={require('../assets/template.png')} resizeMode='contain'>
-                    <Text style={[styles.name]}>{name}</Text>
-                    <Text style={[styles.rank]}>{rank}</Text>
-                    <Text style={[styles.effect]}>{effect}</Text>
-                    <Text style={[styles.power]}>{power}</Text>
+                <ImageBackground style={styles.card} source={require('../assets/ps_template.png')} resizeMode='contain'>
+                    <StrokedText text={name} top={50} left={40} fontSize={41} strokeWidth={6}/>
+                    <StrokedText text={rank} top={42} left={643} fontSize={55} strokeWidth={6} />
+                    <StrokedText text={effect} top={671} left={53} fontSize={26} strokeWidth={3}/>
+                    <StrokedText text={power} top={905} left={647} fontSize={50} strokeWidth={5} />
                 </ImageBackground>    
             </View>
 
