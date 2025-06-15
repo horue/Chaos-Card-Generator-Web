@@ -2,6 +2,8 @@ import { StyleSheet, Text, View, TextInput, ImageBackground, Image, ScrollView} 
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useState } from 'react';
 
+import { CustomButton } from '../components/button';
+
 
 export default function MainScreen() {
     const [name, setName] = useState(' ');
@@ -15,7 +17,6 @@ export default function MainScreen() {
         {label: '1', value: '1'},
         {label: '2', value: '2'}
     ]);
-
     
 
 
@@ -28,8 +29,11 @@ export default function MainScreen() {
 
             <ScrollView style={[styles.cardSettings]}>
                 <View style={[styles.innerContainer]}>
-
+                    
+                    <CustomButton buttonText='Clear All' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
                     <Text style={[styles.header]}>Card Type</Text>
+
+                    <Text>Supertype</Text>
 
                     <Text>Card Element</Text>
                     <DropDownPicker
@@ -65,7 +69,7 @@ export default function MainScreen() {
                     <Text>Card Power</Text>
                     <TextInput style={[styles.inputBox]} onChangeText={setPower} value={power}></TextInput>
 
-                    <Text style={[styles.header]}>Card Info</Text>
+                    <Text style={[styles.header]}>Card Data</Text>
 
                     <Text>Card ID</Text>
                     <TextInput style={[styles.inputBox]}></TextInput>
@@ -73,6 +77,11 @@ export default function MainScreen() {
 
                     <Text>Card Date</Text>
                     <TextInput style={[styles.inputBox]}></TextInput>
+
+                    <CustomButton buttonText='Export' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+                    <CustomButton buttonText='Import' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+
+
                 </View>
             </ScrollView>
 
