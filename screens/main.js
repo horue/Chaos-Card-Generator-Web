@@ -20,6 +20,13 @@ export default function MainScreen() {
         {label: '1', value: '1'},
         {label: '2', value: '2'}
     ]);
+
+    const clearAll = () => {
+        setName(' ')
+        setEffect(' ')
+        setRank(' ')
+        setPower(' ')
+    }
     
 
 
@@ -33,7 +40,7 @@ export default function MainScreen() {
             <ScrollView style={[styles.cardSettings]}>
                 <View style={[styles.innerContainer]}>
                     
-                    <CustomButton buttonText='Clear All' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+                    <CustomButton buttonText='Clear All' buttonColor={'darkblue'} textColor={'white'} onPress={clearAll}></CustomButton>
                     <Text style={[styles.header]}>Card Type</Text>
 
                     <Text>Supertype</Text>
