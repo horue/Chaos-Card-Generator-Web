@@ -2,7 +2,7 @@ import Svg, { Text as SvgText } from 'react-native-svg';
 import { View } from 'react-native';
 
 
-export const StrokedText = ({ text, top, left, fontSize, strokeWidth }) => (
+export const StrokedText = ({ text, top, left, fontSize, strokeWidth, font }) => (
   <View style={{ top, left, position: 'absolute' }}>
     <Svg height={fontSize + 200} width={1500}>
       <SvgText
@@ -10,7 +10,7 @@ export const StrokedText = ({ text, top, left, fontSize, strokeWidth }) => (
         strokeWidth={strokeWidth}
         fill="white"
         fontSize={fontSize}
-        fontFamily="Mongolian Baiti"
+        fontFamily={font}
         x={4}
         y={fontSize}
         strokeLinejoin="round"
