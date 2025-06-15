@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ChaosReactNative",
-    "slug": "ChaosReactNative",
+    "name": "Chaos Card Generator - Web Version (React Native)",
+    "slug": "Chaos Card Generator - Web Version (React Native)",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
