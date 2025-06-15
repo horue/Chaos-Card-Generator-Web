@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, ImageBackground, Image, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, TextInput, ImageBackground, CheckBox, ScrollView} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useState } from 'react';
 
@@ -10,6 +10,9 @@ export default function MainScreen() {
     const [effect, setEffect] = useState(' ');
     const [rank, setRank] = useState(' ');
     const [power, setPower] = useState(' ');
+
+    const [isSelected, setSelection] = useState(false);
+
 
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState(null);
@@ -37,12 +40,12 @@ export default function MainScreen() {
 
                     <Text>Card Element</Text>
                     <DropDownPicker
-                    open={open}
-                    value={value}
-                    items={items}
-                    setOpen={setOpen}
-                    setValue={setValue}
-                    setItems={setItems}
+                        open={open}
+                        value={value}
+                        items={items}
+                        setOpen={setOpen}
+                        setValue={setValue}
+                        setItems={setItems}
                     />
 
                     <Text style={[styles.header]}>Basics</Text>
@@ -79,7 +82,27 @@ export default function MainScreen() {
                     <TextInput style={[styles.inputBox]}></TextInput>
 
                     <CustomButton buttonText='Export' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
-                    <CustomButton buttonText='Import' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+
+
+                    <View style={styles.checkboxContainer}>
+                        <CheckBox
+                            value={isSelected}
+                            onValueChange={setSelection}
+                            style={styles.checkbox}
+                        />
+                        <Text>Advenced Import/Export</Text>
+                    </View>
+
+
+                    {isSelected ? (
+                    <>
+                    <Text>EXPERIMENTAL: This allows you to import and export your card as a JSON-object to or from your clipboard</Text>    
+                    <CustomButton buttonText='Export JSON' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+                    <CustomButton buttonText='Import JSON' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+                    </>
+                    ) : 
+                        
+                    console.log('test') }
 
 
                 </View>
@@ -103,6 +126,10 @@ export default function MainScreen() {
 }
 
 const styles = StyleSheet.create({
+    checkboxContainer: {
+        flexDirection: 'row',
+        marginBottom: 20,
+    },
     toolbar:{
         flex: 1,
         flexDirection: 'column',
