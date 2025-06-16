@@ -48,6 +48,8 @@ export default function MainScreen() {
                         <Text style={[styles.header]}>Card Type</Text>
 
                         <Text>Supertype</Text>
+                        <DropDownPicker
+                        />
 
                         <Text>Card Element</Text>
                         <DropDownPicker
