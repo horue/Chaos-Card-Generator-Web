@@ -10,6 +10,7 @@ export default function MainScreen() {
     const [effect, setEffect] = useState(' ');
     const [rank, setRank] = useState(' ');
     const [power, setPower] = useState(' ');
+    const [info, setInfo] = useState(' ');
 
     const [isSelected, setSelection] = useState(false);
 
@@ -69,7 +70,7 @@ export default function MainScreen() {
                     <Text style={[styles.header]}>Effect/Power</Text>
 
                     <Text>Card Info</Text>
-                    <TextInput style={[styles.inputBox]}></TextInput>
+                    <TextInput style={[styles.inputBox]} onChangeText={setInfo} value={info}></TextInput>
 
 
                     <Text>Card Effect</Text>
@@ -118,10 +119,11 @@ export default function MainScreen() {
 
             <View style={{flex: 2, backgroundColor: 'darkblue', paddingLeft: 60}}>
                 <ImageBackground style={styles.card} source={require('../assets/ps_template.png')} resizeMode='contain'>
-                    <StrokedText text={name} top={50} left={40} fontSize={41} strokeWidth={6}/>
-                    <StrokedText text={rank} top={42} left={643} fontSize={55} strokeWidth={6} />
-                    <StrokedText text={effect} top={671} left={53} fontSize={26} strokeWidth={3}/>
-                    <StrokedText text={power} top={905} left={647} fontSize={50} strokeWidth={5} />
+                    <StrokedText text={name} top={54} left={41} fontSize={37} strokeWidth={6} font='Mongolian Baiti'/>
+                    <StrokedText text={rank} top={42} left={643} fontSize={55} strokeWidth={6} font='Mongolian Baiti'/>
+                    <StrokedText text={info} top={617} left={40} fontSize={38} strokeWidth={4} font='Mongolian Baiti'/>
+                    <StrokedText text={effect} top={673} left={53} fontSize={24} strokeWidth={4} font='Mongolian Baiti'/>
+                    <StrokedText text={power} top={905} left={647} fontSize={50} strokeWidth={5} font='Mongolian Baiti'/>
                 </ImageBackground>    
             </View>
 
