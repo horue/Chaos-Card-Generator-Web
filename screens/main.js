@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     },
     innerContainer: {
         padding: 34,
-        gap: 14,
+        gap: 24,
         backgroundColor: '#ebf1ff',
         borderRadius: 20
     },
