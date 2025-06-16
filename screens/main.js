@@ -103,26 +103,28 @@ export default function MainScreen() {
 
                     <CustomButton buttonText='Download' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
 
+                    <View style={[styles.contentContainer]}>
+                        <View style={styles.checkboxContainer}>
+                            <CheckBox
+                                value={isSelected}
+                                onValueChange={setSelection}
+                                style={styles.checkbox}
+                            />
+                            <Text>Advenced Import/Export</Text>
+                        </View>
 
-                    <View style={styles.checkboxContainer}>
-                        <CheckBox
-                            value={isSelected}
-                            onValueChange={setSelection}
-                            style={styles.checkbox}
-                        />
-                        <Text>Advenced Import/Export</Text>
+
+                        {isSelected ? (
+                        <>
+                        <Text>EXPERIMENTAL: This allows you to import and export your card as a JSON-object to or from your clipboard</Text>    
+                        <CustomButton buttonText='Export JSON' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+                        <CustomButton buttonText='Import JSON' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+                        </>
+                        ) : 
+                            
+                        console.log('test') }
                     </View>
 
-
-                    {isSelected ? (
-                    <>
-                    <Text>EXPERIMENTAL: This allows you to import and export your card as a JSON-object to or from your clipboard</Text>    
-                    <CustomButton buttonText='Export JSON' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
-                    <CustomButton buttonText='Import JSON' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
-                    </>
-                    ) : 
-                        
-                    console.log('test') }
 
 
                 </View>
