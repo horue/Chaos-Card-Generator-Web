@@ -43,9 +43,10 @@ export default function MainScreen() {
                 <View style={[styles.innerContainer]}>
                     
                     <CustomButton buttonText='Clear All' buttonColor={'darkblue'} textColor={'white'} onPress={clearAll}></CustomButton>
-                    <Text style={[styles.header]}>Card Type</Text>
 
                     <View style={[styles.contentContainer]}>
+                        <Text style={[styles.header]}>Card Type</Text>
+
                         <Text>Supertype</Text>
 
                         <Text>Card Element</Text>
