@@ -27,6 +27,7 @@ export default function MainScreen() {
         setEffect(' ')
         setRank(' ')
         setPower(' ')
+        setInfo(' ')
     }
     
 
