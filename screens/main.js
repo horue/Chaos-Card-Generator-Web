@@ -45,52 +45,62 @@ export default function MainScreen() {
                     <CustomButton buttonText='Clear All' buttonColor={'darkblue'} textColor={'white'} onPress={clearAll}></CustomButton>
                     <Text style={[styles.header]}>Card Type</Text>
 
-                    <Text>Supertype</Text>
+                    <View style={[styles.contentContainer]}>
+                        <Text>Supertype</Text>
 
-                    <Text>Card Element</Text>
-                    <DropDownPicker
-                        open={open}
-                        value={value}
-                        items={items}
-                        setOpen={setOpen}
-                        setValue={setValue}
-                        setItems={setItems}
-                    />
-
-                    <Text style={[styles.header]}>Basics</Text>
-
-                    <Text>Card Name</Text>
-                    <TextInput style={[styles.inputBox]} onChangeText={setName} value={name}></TextInput>
+                        <Text>Card Element</Text>
+                        <DropDownPicker
+                            open={open}
+                            value={value}
+                            items={items}
+                            setOpen={setOpen}
+                            setValue={setValue}
+                            setItems={setItems}
+                        />
+                    </View>
 
 
-                    <Text>Card Rank</Text>
-                    <TextInput style={[styles.inputBox]} onChangeText={setRank} value={rank}></TextInput>
+                    <View style={[styles.contentContainer]}>
+                        <Text style={[styles.header]}>Basics</Text>
+
+                        <Text>Card Name</Text>
+                        <TextInput style={[styles.inputBox]} onChangeText={setName} value={name}></TextInput>
 
 
-
-                    <Text style={[styles.header]}>Effect/Power</Text>
-
-                    <Text>Card Info</Text>
-                    <TextInput style={[styles.inputBox]} onChangeText={setInfo} value={info}></TextInput>
+                        <Text>Card Rank</Text>
+                        <TextInput style={[styles.inputBox]} onChangeText={setRank} value={rank}></TextInput>
+                    </View>
 
 
-                    <Text>Card Effect</Text>
-                    <TextInput multiline numberOfLines={4} style={[styles.inputBox]} onChangeText={setEffect} value={effect}></TextInput>
+                    <View style={[styles.contentContainer]}>
+                        <Text style={[styles.header]}>Effect/Power</Text>
+
+                        <Text>Card Info</Text>
+                        <TextInput style={[styles.inputBox]} onChangeText={setInfo} value={info}></TextInput>
 
 
-                    <Text>Card Power</Text>
-                    <TextInput style={[styles.inputBox]} onChangeText={setPower} value={power}></TextInput>
-
-                    <Text style={[styles.header]}>Card Data</Text>
-
-                    <Text>Card ID</Text>
-                    <TextInput style={[styles.inputBox]}></TextInput>
+                        <Text>Card Effect</Text>
+                        <TextInput multiline numberOfLines={4} style={[styles.inputBox]} onChangeText={setEffect} value={effect}></TextInput>
 
 
-                    <Text>Card Date</Text>
-                    <TextInput style={[styles.inputBox]}></TextInput>
+                        <Text>Card Power</Text>
+                        <TextInput style={[styles.inputBox]} onChangeText={setPower} value={power}></TextInput>
+                    </View>
 
-                    <CustomButton buttonText='Export' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+
+                    <View style={[styles.contentContainer]}>
+                        <Text style={[styles.header]}>Card Data</Text>
+
+                        <Text>Card ID</Text>
+                        <TextInput style={[styles.inputBox]}></TextInput>
+
+
+                        <Text>Card Date</Text>
+                        <TextInput style={[styles.inputBox]}></TextInput>
+                    </View>
+
+
+                    <CustomButton buttonText='Download' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
 
 
                     <View style={styles.checkboxContainer}>
@@ -165,6 +175,12 @@ const styles = StyleSheet.create({
         gap: 14,
         backgroundColor: '#ebf1ff',
         borderRadius: 20
+    },
+    contentContainer:{
+        padding: 34,
+        gap: 12,
+        backgroundColor: '#d6e2ff',
+        borderRadius: 20,
     },
     cardSettings:{
         flex: 1,
