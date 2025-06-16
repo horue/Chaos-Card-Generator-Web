@@ -104,6 +104,8 @@ export default function MainScreen() {
 
 
                     <CustomButton buttonText='Download' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+                    <CustomButton buttonText='Export as Text' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+
 
                     <View style={[styles.contentContainer]}>
                         <View style={styles.checkboxContainer}>
