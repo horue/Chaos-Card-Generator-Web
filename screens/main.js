@@ -128,7 +128,7 @@ export default function MainScreen() {
                         </>
                         ) : 
                             
-                        console.log('test') }
+                        <></>}
                     </View>
 
 
