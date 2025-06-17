@@ -102,9 +102,11 @@ export default function MainScreen() {
                         <TextInput style={[styles.inputBox]}></TextInput>
                     </View>
 
+                    <View style={[styles.contentContainer]}>
+                        <CustomButton buttonText='Download' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+                        <CustomButton buttonText='Export as Text' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+                    </View>
 
-                    <CustomButton buttonText='Download' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
-                    <CustomButton buttonText='Export as Text' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
 
 
                     <View style={[styles.contentContainer]}>
