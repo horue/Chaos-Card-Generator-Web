@@ -134,6 +134,7 @@ export default function MainScreen() {
 
 
                 </View>
+                <Text style={{paddingTop: 20, color: '#696969', textAlign: 'center', fontSize: 12}}>© 2025 Karasu System Development Group. Card Generator Powered by Karasu Systems Solutions / Karasu Dev Group. Chaos TCG Developed by Karasu Game Studio & Karasu Design & Visuals.</Text>
             </ScrollView>
 
 
