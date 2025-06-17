@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         gap: 24,
         padding: 24,
-        paddingTop: '5%',
+        paddingTop: '2%',
     },
     card: {
         justifyContent: 'space-between',
