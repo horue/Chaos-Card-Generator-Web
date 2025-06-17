@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, ImageBackground, CheckBox, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, TextInput, ImageBackground, CheckBox, ScrollView } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useState } from 'react';
 import { StrokedText } from '../components/strokedtext';
@@ -16,11 +16,15 @@ export default function MainScreen() {
 
 
     const [open, setOpen] = useState(false);
-    const [value, setValue] = useState(null);
+    const [value, setValue] = useState('nameless');
     const [items, setItems] = useState([
-        {label: 'Test Template', value: 'template'},
-        {label: 'Nameless', value: 'ps_template'}
+        {label: 'Nameless', value: 'nameless'},
+        {label: 'Test', value: 'test'}
     ]);
+    const images = {
+        'nameless': require('../assets/ps_template.png'),
+        'test': require('../assets/template.png'),
+    };
 
     const clearAll = () => {
         setName(' ')
@@ -29,7 +33,7 @@ export default function MainScreen() {
         setPower(' ')
         setInfo(' ')
     }
-    
+
 
 
 
@@ -139,7 +143,7 @@ export default function MainScreen() {
 
 
             <View style={{flex: 2, backgroundColor: 'darkblue', paddingLeft: 60}}>
-                <ImageBackground style={styles.card} source={require('../assets/ps_template.png')} resizeMode='contain'>
+                <ImageBackground style={styles.card} source={images[value]} resizeMode='contain'>
                     <StrokedText text={name} top={54} left={41} fontSize={37} strokeWidth={6} font='Mongolian Baiti'/>
                     <StrokedText text={rank} top={42} left={643} fontSize={55} strokeWidth={6} font='Mongolian Baiti'/>
                     <StrokedText text={info} top={617} left={40} fontSize={38} strokeWidth={4} font='Mongolian Baiti'/>
