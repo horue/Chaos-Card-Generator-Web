@@ -48,7 +48,7 @@ export default function MainScreen() {
                     
                     <CustomButton buttonText='Clear All' buttonColor={'darkblue'} textColor={'white'} onPress={clearAll}></CustomButton>
 
-                    <View style={[styles.contentContainer]}>
+                    <View style={[styles.contentContainer, {zIndex: 1000}]}>
                         <Text style={[styles.header]}>Card Type</Text>
 
                         <Text>Supertype</Text>
