@@ -83,7 +83,7 @@ export default function MainScreen() {
 
 
                         <Text>Card Effect</Text>
-                        <TextInput multiline numberOfLines={4} style={[styles.inputBox]} onChangeText={setEffect} value={effect}></TextInput>
+                        <TextInput multiline numberOfLines={4} style={[styles.inputBox, {height: 150}]} onChangeText={setEffect} value={effect}></TextInput>
 
 
                         <Text>Card Power</Text>
