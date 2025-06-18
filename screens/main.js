@@ -13,6 +13,7 @@ export default function MainScreen() {
     const [rank, setRank] = useState(' ');
     const [power, setPower] = useState(' ');
     const [info, setInfo] = useState(' ');
+    const [id, setId] = useState(' ');
 
     const [isSelected, setSelection] = useState(false);
 
@@ -98,7 +99,7 @@ export default function MainScreen() {
                         <Text style={[styles.header]}>Card Data</Text>
 
                         <Text>Card ID</Text>
-                        <TextInput style={[styles.inputBox]}></TextInput>
+                        <TextInput style={[styles.inputBox]}  onChangeText={setId} value={id}></TextInput>
 
 
                         <Text>Card Date</Text>
@@ -148,6 +149,7 @@ export default function MainScreen() {
                     <StrokedText text={info} top={617} left={40} fontSize={38} strokeWidth={4} font='Mongolian Baiti'/>
                     <StrokedText text={effect} top={673} left={53} fontSize={24} strokeWidth={4} font='Mongolian Baiti'/>
                     <StrokedText text={power} top={905} left={647} fontSize={50} strokeWidth={5} font='Mongolian Baiti'/>
+                    <StrokedText text={id} top={954} left={47} fontSize={15} strokeWidth={0} font='Bahnschrift'/>
                 </ImageBackground>    
             </View>
 
