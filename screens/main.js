@@ -14,6 +14,7 @@ export default function MainScreen() {
     const [power, setPower] = useState(' ');
     const [info, setInfo] = useState(' ');
     const [id, setId] = useState(' ');
+    const [date, setDate] = useState(' ');
 
     const [isSelected, setSelection] = useState(false);
 
@@ -103,7 +104,7 @@ export default function MainScreen() {
 
 
                         <Text>Card Date</Text>
-                        <TextInput style={[styles.inputBox]}></TextInput>
+                        <TextInput style={[styles.inputBox]} onChangeText={setDate} value={date}></TextInput>
                     </View>
 
                     <View style={[styles.contentContainer]}>
@@ -150,6 +151,7 @@ export default function MainScreen() {
                     <StrokedText text={effect} top={673} left={53} fontSize={24} strokeWidth={4} font='Mongolian Baiti'/>
                     <StrokedText text={power} top={905} left={647} fontSize={50} strokeWidth={5} font='Mongolian Baiti'/>
                     <StrokedText text={id} top={954} left={47} fontSize={15} strokeWidth={0} font='Bahnschrift'/>
+                    <StrokedText text={`${date} - © CHAOS TCG - PT-BR`} top={972} left={47} fontSize={15} strokeWidth={0} font='Bahnschrift'/>
                 </ImageBackground>    
             </View>
 
