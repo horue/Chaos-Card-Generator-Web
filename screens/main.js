@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, ImageBackground, CheckBox, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TextInput, ImageBackground, CheckBox, ScrollView, Image } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useState } from 'react';
 import { StrokedText } from '../components/strokedtext';
@@ -146,7 +146,7 @@ export default function MainScreen() {
 
 
             <View style={{flex: 2, backgroundColor: 'darkblue', paddingLeft: 60}}>
-                <ImageBackground style={styles.card} source={images[value]} resizeMode='contain'>
+                <ImageBackground style={[styles.card,{zIndex: 2}]} source={images[value]} resizeMode='contain'>
                     <StrokedText text={name} top={54} left={41} fontSize={37} strokeWidth={6} font='Mongolian Baiti'/>
                     <StrokedText text={rank} top={42} left={643} fontSize={55} strokeWidth={6} font='Mongolian Baiti'/>
                     <StrokedText text={info} top={617} left={40} fontSize={38} strokeWidth={4} font='Mongolian Baiti'/>
@@ -155,6 +155,7 @@ export default function MainScreen() {
                     <StrokedText text={id.toUpperCase()} top={954} left={47} fontSize={15} strokeWidth={0} font='Bahnschrift'/>
                     <StrokedText text={`${date} - © CHAOS TCG - PT-BR`} top={972} left={47} fontSize={15} strokeWidth={0} font='Bahnschrift'/>
                 </ImageBackground>    
+                <Image style={{position: 'absolute'}} source={require('../assets/test.png')}></Image>
             </View>
 
 
