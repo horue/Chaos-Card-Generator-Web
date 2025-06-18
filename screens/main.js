@@ -33,6 +33,8 @@ export default function MainScreen() {
         setRank(' ')
         setPower(' ')
         setInfo(' ')
+        setId(' ')
+        setDate(' ')
     }
 
 
