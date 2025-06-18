@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { StrokedText } from '../components/strokedtext';
 import { CustomButton } from '../components/button';
 
+import { images } from '../lists/elements';
+
 
 export default function MainScreen() {
     const [name, setName] = useState(' ');
@@ -21,10 +23,7 @@ export default function MainScreen() {
         {label: 'Nameless', value: 'nameless'},
         {label: 'Test', value: 'test'}
     ]);
-    const images = {
-        'nameless': require('../assets/ps_template.png'),
-        'test': require('../assets/template.png'),
-    };
+
 
     const clearAll = () => {
         setName(' ')
