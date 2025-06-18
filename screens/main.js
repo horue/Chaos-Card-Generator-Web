@@ -20,10 +20,11 @@ export default function MainScreen() {
 
 
     const [open, setOpen] = useState(false);
-    const [value, setValue] = useState('nameless');
+    const [value, setValue] = useState('typeless');
     const [items, setItems] = useState([
+        {label: 'Typeless', value: 'typeless'},
         {label: 'Nameless', value: 'nameless'},
-        {label: 'Test', value: 'test'}
+        {label: 'Dark', value: 'dark'},
     ]);
 
 
