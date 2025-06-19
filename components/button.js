@@ -1,10 +1,9 @@
 //Imports React
 import {Text, StyleSheet, TouchableOpacity} from 'react-native';
 
-
 // Componente modelo
-export const CustomButton = ({ icon, buttonText, textAlign, onPress, buttonColor, textColor }) => (
-  <TouchableOpacity style={[styles.card, {backgroundColor: buttonColor}]} onPress={() => {try{onPress()}catch(error){console.log('No function defined')}}}>
+export const CustomButton = ({ icon, buttonText, textAlign, onPress, buttonColor, textColor, style }) => (
+  <TouchableOpacity style={[styles.card, {backgroundColor: buttonColor}, style]} onPress={() => {try{onPress()}catch(error){console.log('No function defined')}}}>
     <Text style={[styles.text, { textAlign, color: textColor, fontWeight: 'bold'  }]}>{buttonText.toUpperCase()}</Text>
   </TouchableOpacity>
 );
