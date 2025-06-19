@@ -83,6 +83,21 @@ export default function MainScreen() {
                     </View>
 
 
+                    <View style={[styles.contentContainer, {flexDirection: 'column'}]}>
+                        <Text style={[styles.header]}>Images</Text>
+
+                        <CustomButton buttonText='Upload Image' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+
+                        <Text>Zoom</Text>
+                        <TextInput style={[styles.inputBox]}></TextInput>
+                        <View style={[{flexDirection: 'row', justifyContent: 'space-between'}]}>
+                            <CustomButton buttonText='+' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}}></CustomButton>
+                            <CustomButton buttonText='-' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}}></CustomButton>
+                        </View>
+
+
+                    </View>
+
                     <View style={[styles.contentContainer]}>
                         <Text style={[styles.header]}>Effect/Power</Text>
 
@@ -156,7 +171,7 @@ export default function MainScreen() {
                     <StrokedText text={id.toUpperCase()} top={954} left={47} fontSize={15} strokeWidth={0} font='Bahnschrift'/>
                     <StrokedText text={`${date} - © CHAOS TCG - PT-BR`} top={972} left={47} fontSize={15} strokeWidth={0} font='Bahnschrift'/>
                 </ImageBackground>    
-                <Image style={{position: 'absolute'}} source={require('../assets/test.png')}></Image>
+                <Image style={{position: 'absolute', height: 590, width: 700}} source={require('../assets/test.png')}></Image>
             </View>
 
 
