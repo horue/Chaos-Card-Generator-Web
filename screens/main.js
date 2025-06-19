@@ -17,7 +17,7 @@ export default function MainScreen() {
     const [date, setDate] = useState(' ');
 
 
-    const [xOffset, setXOffset] = useState(0);
+    const [xOffset, setXOffset] = useState('0');
     const [isSelected, setSelection] = useState(false);
 
 
@@ -83,11 +83,10 @@ export default function MainScreen() {
                         <Text>Card Rank</Text>
                         <TextInput style={[styles.inputBox]} onChangeText={setRank} value={rank}></TextInput>
 
+                    
                         <Text>X Offset</Text>
-                        <TextInput style={[styles.inputBox]} onChangeText={setXOffset} value={xOffset}></TextInput>
                         <View style={[{flexDirection: 'row', justifyContent: 'space-between'}]}>
-                            <CustomButton buttonText='+' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}}></CustomButton>
-                            <CustomButton buttonText='-' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}}></CustomButton>
+                            <TextInput style={[styles.inputBox, {width: 55}]} onChangeText={setXOffset} value={xOffset}></TextInput>
                         </View>
                     </View>
 
@@ -173,7 +172,7 @@ export default function MainScreen() {
             <View style={{flex: 2, backgroundColor: 'darkblue', paddingLeft: 60}}>
                 <ImageBackground style={[styles.card,{zIndex: 2}]} source={images[value]} resizeMode='contain'>
                     <StrokedText text={name} top={54} left={41} fontSize={37} strokeWidth={6} font='Mongolian Baiti'/>
-                    <StrokedText text={rank} top={42} left={643+xOffset} fontSize={55} strokeWidth={6} font='Mongolian Baiti'/>
+                    <StrokedText text={rank} top={42} left={643+Number(xOffset)} fontSize={55} strokeWidth={6} font='Mongolian Baiti'/>
                     <StrokedText text={info} top={617} left={40} fontSize={38} strokeWidth={4} font='Mongolian Baiti'/>
                     <StrokedText text={effect} top={673} left={53} fontSize={24} strokeWidth={4} font='Mongolian Baiti'/>
                     <StrokedText text={power} top={905} left={647} fontSize={50} strokeWidth={5} font='Mongolian Baiti'/>
