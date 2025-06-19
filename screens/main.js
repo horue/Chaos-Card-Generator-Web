@@ -80,6 +80,13 @@ export default function MainScreen() {
 
                         <Text>Card Rank</Text>
                         <TextInput style={[styles.inputBox]} onChangeText={setRank} value={rank}></TextInput>
+
+                        <Text>X Offset</Text>
+                        <TextInput style={[styles.inputBox]}></TextInput>
+                        <View style={[{flexDirection: 'row', justifyContent: 'space-between'}]}>
+                            <CustomButton buttonText='+' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}}></CustomButton>
+                            <CustomButton buttonText='-' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}}></CustomButton>
+                        </View>
                     </View>
 
 
