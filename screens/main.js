@@ -105,6 +105,20 @@ export default function MainScreen() {
                             <CustomButton buttonText='-' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setZoom(zoom-1)}></CustomButton>
                         </View>
 
+                        <Text>X Position</Text>
+                        <TextInput style={[styles.inputBox]}></TextInput>
+                        <View style={[{flexDirection: 'row', justifyContent: 'space-between'}]}>
+                            <CustomButton buttonText='+' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setZoom(zoom+1)}></CustomButton>
+                            <CustomButton buttonText='-' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setZoom(zoom-1)}></CustomButton>
+                        </View>
+
+                        <Text>Y Position</Text>
+                        <TextInput style={[styles.inputBox]}></TextInput>
+                        <View style={[{flexDirection: 'row', justifyContent: 'space-between'}]}>
+                            <CustomButton buttonText='+' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setZoom(zoom+1)}></CustomButton>
+                            <CustomButton buttonText='-' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setZoom(zoom-1)}></CustomButton>
+                        </View>
+
 
                     </View>
 
