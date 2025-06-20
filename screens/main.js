@@ -16,6 +16,8 @@ export default function MainScreen() {
     const [id, setId] = useState(' ');
     const [date, setDate] = useState(' ');
 
+    const [zoom, setZoom] = useState('0');
+
 
     const [xOffset, setXOffset] = useState('0');
     const [isSelected, setSelection] = useState(false);
@@ -99,8 +101,8 @@ export default function MainScreen() {
                         <Text>Zoom</Text>
                         <TextInput style={[styles.inputBox]}></TextInput>
                         <View style={[{flexDirection: 'row', justifyContent: 'space-between'}]}>
-                            <CustomButton buttonText='+' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}}></CustomButton>
-                            <CustomButton buttonText='-' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}}></CustomButton>
+                            <CustomButton buttonText='+' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setZoom(zoom+1)}></CustomButton>
+                            <CustomButton buttonText='-' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setZoom(zoom-1)}></CustomButton>
                         </View>
 
 
@@ -179,7 +181,7 @@ export default function MainScreen() {
                     <StrokedText text={id.toUpperCase()} top={954} left={47} fontSize={15} strokeWidth={0} font='Bahnschrift'/>
                     <StrokedText text={`${date} - © CHAOS TCG - PT-BR`} top={972} left={47} fontSize={15} strokeWidth={0} font='Bahnschrift'/>
                 </ImageBackground>    
-                <Image style={{position: 'absolute', height: 590, width: 700}} source={require('../assets/test.png')}></Image>
+                <Image style={{position: 'absolute', height: 590+Number(zoom), width: 700+Number(zoom)}} source={require('../assets/test.png')}></Image>
             </View>
 
 
