@@ -5,7 +5,7 @@ import { StrokedText } from '../components/strokedtext';
 import { CustomButton } from '../components/button';
 
 import { images } from '../lists/elements';
-
+import { exportHandler } from '../modules/export';
 
 export default function MainScreen() {
     const [name, setName] = useState(' ');
@@ -155,7 +155,7 @@ export default function MainScreen() {
 
                     <View style={[styles.contentContainer]}>
                         <CustomButton buttonText='Download' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
-                        <CustomButton buttonText='Export as Text' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+                        <CustomButton buttonText='Export as Text' buttonColor={'darkblue'} textColor={'white'} onPress={() => exportHandler(name, rank, info, effect, power, id, date)}></CustomButton>
                     </View>
 
 
