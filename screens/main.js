@@ -17,6 +17,7 @@ export default function MainScreen() {
     const [date, setDate] = useState(' ');
 
     const [zoom, setZoom] = useState('0');
+    const [zoomInput, setZoomInput] = useState(' ');
     const [yPos, setY] = useState('0');
     const [xPos, setX] = useState('0');
 
@@ -102,10 +103,10 @@ export default function MainScreen() {
                         <CustomButton buttonText='Upload Image' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
 
                         <Text>Zoom</Text>
-                        <TextInput style={[styles.inputBox]}></TextInput>
+                        <TextInput style={[styles.inputBox]} onChangeText={setZoomInput} value={zoomInput}></TextInput>
                         <View style={[{flexDirection: 'row', justifyContent: 'space-between'}]}>
-                            <CustomButton buttonText='+' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setZoom(zoom+1)}></CustomButton>
-                            <CustomButton buttonText='-' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setZoom(zoom-1)}></CustomButton>
+                            <CustomButton buttonText='+' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setZoom(zoomInput != '' ? zoom+1 : Number(zoomInput))}></CustomButton>
+                            <CustomButton buttonText='-' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setZoom(zoomInput != '' ? zoom-1 : Number(zoomInput))}></CustomButton>
                         </View>
 
                         <Text>Y Position</Text>
@@ -198,7 +199,7 @@ export default function MainScreen() {
                     <StrokedText text={id.toUpperCase()} top={954} left={47} fontSize={15} strokeWidth={0} font='Bahnschrift'/>
                     <StrokedText text={`${date} - © CHAOS TCG - PT-BR`} top={972} left={47} fontSize={15} strokeWidth={0} font='Bahnschrift'/>
                 </ImageBackground>    
-                <Image style={{position: 'absolute', height: 590+Number(zoom), width: 700+Number(zoom), top: Number(yPos), left: Number(xPos)}} source={require('../assets/test.png')}></Image>
+                <Image style={{position: 'absolute', height: Number(zoom), width: Number(zoom), top: Number(yPos), left: Number(xPos)}} source={require('../assets/test.png')}></Image>
             </View>
 
 
