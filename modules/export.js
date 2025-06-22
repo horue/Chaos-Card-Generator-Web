@@ -1,5 +1,5 @@
-export const exportHandler = (name, rank, info, effect, power, id, date) => {
-  const content = `Name: ${name}\nRank: ${rank}\nCard Info: ${info}\nCard Effect: ${effect}\nPower: ${power}\nId: ${id}\nDate: ${date}`;
+export const exportHandler = (supertype, element, name, rank, info, effect, power, id, date) => {
+  const content = `Superype: ${supertype}\nElement: ${element}\nName: ${name}\nRank: ${rank}\nCard Info: ${info}\nCard Effect: ${effect}\nPower: ${power}\nId: ${id}\nDate: ${date}`;
   const filename = `${name}.txt`;
 
   const blob = new Blob([content], { type: 'text/plain' });
