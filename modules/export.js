@@ -1,4 +1,4 @@
-export const exportHandler = (supertype, element, name, rank, info, effect, power, id, date) => {
+export const ctcgExportHandler = (supertype, element, name, rank, info, effect, power, id, date) => {
   const content = `Superype: ${supertype}\nElement: ${element}\nName: ${name}\nRank: ${rank}\nCard Info: ${info}\nCard Effect: ${effect}\nPower: ${power}\nId: ${id}\nDate: ${date}`;
   const filename = `${name}.ctcg`;
 
@@ -11,3 +11,4 @@ export const exportHandler = (supertype, element, name, rank, info, effect, powe
 
   URL.revokeObjectURL(link.href);
 };
+
