@@ -5,7 +5,7 @@ import { StrokedText } from '../components/strokedtext';
 import { CustomButton } from '../components/button';
 
 import { images } from '../lists/elements';
-import { exportHandler } from '../modules/export';
+import { ctcgExportHandler, JSONExportHandler } from '../modules/export';
 
 export default function MainScreen() {
     const [name, setName] = useState(' ');
@@ -155,7 +155,7 @@ export default function MainScreen() {
 
                     <View style={[styles.contentContainer]}>
                         <CustomButton buttonText='Download' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
-                        <CustomButton buttonText='Export as Text' buttonColor={'darkblue'} textColor={'white'} onPress={() => exportHandler('-', value, name, rank, info, effect, power, id, date)}></CustomButton>
+                        <CustomButton buttonText='Export as Text' buttonColor={'darkblue'} textColor={'white'} onPress={() => ctcgExportHandler('-', value, name, rank, info, effect, power, id, date)}></CustomButton>
                     </View>
 
 
@@ -174,7 +174,7 @@ export default function MainScreen() {
                         {isSelected ? (
                         <>
                         <Text>EXPERIMENTAL: This allows you to import and export your card as a JSON-object to or from your clipboard</Text>    
-                        <CustomButton buttonText='Export JSON' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+                        <CustomButton buttonText='Export JSON' buttonColor={'darkblue'} textColor={'white'} onPress={() => JSONExportHandler('-', value, name, rank, info, effect, power, id, date)}></CustomButton>
                         <CustomButton buttonText='Import JSON' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
                         </>
                         ) : 
