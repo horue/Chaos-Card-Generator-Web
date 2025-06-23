@@ -16,11 +16,11 @@ export default function MainScreen() {
     const [id, setId] = useState(' ');
     const [date, setDate] = useState(' ');
 
+
     const [zoom, setZoom] = useState('0');
     const [zoomInput, setZoomInput] = useState(' ');
     const [yPos, setY] = useState('0');
     const [xPos, setX] = useState('0');
-
 
 
     const [xOffset, setXOffset] = useState('0');
@@ -34,6 +34,11 @@ export default function MainScreen() {
         {label: 'Nameless', value: 'nameless'},
         {label: 'Dark', value: 'dark'},
     ]);
+
+
+    const handleSubmit = () => {
+        setZoom(zoomInput)
+    }
 
 
     const clearAll = () => {
@@ -103,10 +108,10 @@ export default function MainScreen() {
                         <CustomButton buttonText='Upload Image' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
 
                         <Text>Zoom</Text>
-                        <TextInput style={[styles.inputBox]} onChangeText={setZoomInput} value={zoomInput}></TextInput>
+                        <TextInput style={[styles.inputBox]} onChangeText={setZoomInput} value={zoomInput} onSubmitEditing={handleSubmit}></TextInput>
                         <View style={[{flexDirection: 'row', justifyContent: 'space-between'}]}>
-                            <CustomButton buttonText='+' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setZoom(zoomInput != '' ? zoom+1 : Number(zoomInput))}></CustomButton>
-                            <CustomButton buttonText='-' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setZoom(zoomInput != '' ? zoom-1 : Number(zoomInput))}></CustomButton>
+                            <CustomButton buttonText='+' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setZoom(zoom+1)}></CustomButton>
+                            <CustomButton buttonText='-' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setZoom(zoom-1)}></CustomButton>
                         </View>
 
                         <Text>Y Position</Text>
