@@ -12,3 +12,28 @@ export const ctcgExportHandler = (supertype, element, name, rank, info, effect, 
   URL.revokeObjectURL(link.href);
 };
 
+export const JSONExportHandler = (supertype, element, name, rank, info, effect, power, id, date) =>{
+  const JSONFile = {
+    Supertype: supertype,
+    Element: element,
+    Name: name,
+    Rank: rank,
+    CardInfo: info,
+    CardEffect: effect,
+    Power: power,
+    Id: id,
+    Date: date
+  };
+
+  const filename = `${name}.json`;
+
+  const blob = new Blob([JSON.stringify(JSONFile, null, 2)], { type: 'application/json' });
+  const link = document.createElement('a');
+
+  link.href = URL.createObjectURL(blob);
+  link.download = filename;
+  link.click();
+
+  URL.revokeObjectURL(link.href);
+};
+
