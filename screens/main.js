@@ -31,7 +31,7 @@ export default function MainScreen() {
     const [value, setValue] = useState('typeless');
     const [items, setItems] = useState([
         {label: 'Typeless', value: 'typeless'},
-        {label: 'Nameless', value: 'nameless'},
+        {label: 'Water', value: 'nameless'},
         {label: 'Dark', value: 'dark'},
     ]);
 
