@@ -61,6 +61,7 @@ export default function MainScreen() {
         setInfo(' ')
         setId(' ')
         setDate(' ')
+        setCroppedImage(null)
     }
 
     const [crop, setCrop] = useState({ x: 0, y: 0 })
@@ -318,7 +319,7 @@ const styles = StyleSheet.create({
     cropperContainer: {
         padding: 34,
         gap: 12,
-        backgroundColor: '#d6e2ff',
+        backgroundColor: '#c2d4ffff',
         borderRadius: 20,
         height: 450,
     },
