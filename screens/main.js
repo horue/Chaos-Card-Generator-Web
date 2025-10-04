@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TextInput, ImageBackground, CheckBox, ScrollView, Image } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useState } from 'react';
+import { launchImageLibrary } from 'react-native-image-picker';
 import { StrokedText } from '../components/strokedtext';
 import { CustomButton } from '../components/button';
 
@@ -107,7 +108,8 @@ export default function MainScreen() {
                     <View style={[styles.contentContainer, {flexDirection: 'column'}]}>
                         <Text style={[styles.header]}>Images</Text>
 
-                        <CustomButton buttonText='Upload Image' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+                        <CustomButton buttonText='Upload Image' buttonColor={'darkblue'} textColor={'white'} onPress={() => launchImageLibrary()}></CustomButton>
+
 
                         <Text>Zoom</Text>
                         <TextInput style={[styles.inputBox]} onChangeText={setZoomInput} value={zoomInput} onSubmitEditing={handleSubmit}></TextInput>
