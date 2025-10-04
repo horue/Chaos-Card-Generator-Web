@@ -1,12 +1,14 @@
 import { StyleSheet, Text, View, TextInput, ImageBackground, CheckBox, ScrollView, Image } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useState } from 'react';
-import { launchImageLibrary } from 'react-native-image-picker';
+import Cropper from 'react-easy-crop'
 import { StrokedText } from '../components/strokedtext';
 import { CustomButton } from '../components/button';
 
 import { images } from '../lists/elements';
-import { ctcgExportHandler, JSONExportHandler } from '../modules/export';
+import { Expoerter } from '../modules/export';
+import { CardImage } from '../modules/image';
+import { getCroppedImg } from '../modules/crop';
 
 export default function MainScreen() {
     const [name, setName] = useState(' ');
@@ -18,7 +20,9 @@ export default function MainScreen() {
     const [date, setDate] = useState(' ');
 
 
-    const [zoom, setZoom] = useState('0');
+    const [imageUri, setImageUri] = useState(' ');
+
+    const [zoom, setZoom] = useState(1);
     const [zoomInput, setZoomInput] = useState(' ');
     const [yPos, setY] = useState('0');
     const [xPos, setX] = useState('0');
@@ -43,6 +47,11 @@ export default function MainScreen() {
         setZoom(zoomInput)
     }
 
+    const handleImageUpdate = async () => {
+        const uri = await CardImage.openImage();
+        setImageUri(uri);
+    }
+
 
     const clearAll = () => {
         setName(' ')
@@ -54,6 +63,17 @@ export default function MainScreen() {
         setDate(' ')
     }
 
+    const [crop, setCrop] = useState({ x: 0, y: 0 })
+    const [cropperZoom, setCropperZoom] = useState(1)
+    const [croppedImage, setCroppedImage] = useState(null)
+
+    const onCropComplete = async (croppedArea, croppedAreaPixels) => {
+    console.log(croppedArea, croppedAreaPixels); // opcional
+    if (!imageUri || !croppedAreaPixels) return;
+
+    const cropped = await getCroppedImg(imageUri, croppedAreaPixels);
+    setCroppedImage(cropped); // aqui a preview é atualizada em tempo real
+    };
 
 
 
@@ -108,7 +128,19 @@ export default function MainScreen() {
                     <View style={[styles.contentContainer, {flexDirection: 'column'}]}>
                         <Text style={[styles.header]}>Images</Text>
 
-                        <CustomButton buttonText='Upload Image' buttonColor={'darkblue'} textColor={'white'} onPress={() => launchImageLibrary()}></CustomButton>
+
+
+                        <Cropper
+                            image={imageUri}
+                            crop={crop}
+                            zoom={zoom}
+                            aspect={3 / 4}
+                            onCropChange={setCrop}
+                            onCropComplete={onCropComplete}
+                            onZoomChange={setZoom}
+                            style={styles.contentContainer}
+                        />
+                        <CustomButton buttonText='Upload Image' buttonColor={'darkblue'} textColor={'white'} onPress={() => handleImageUpdate()}></CustomButton>
 
 
                         <Text>Zoom</Text>
@@ -164,7 +196,7 @@ export default function MainScreen() {
 
                     <View style={[styles.contentContainer]}>
                         <CustomButton buttonText='Download' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
-                        <CustomButton buttonText='Export as Text' buttonColor={'darkblue'} textColor={'white'} onPress={() => ctcgExportHandler('-', value, name, rank, info, effect, power, id, date)}></CustomButton>
+                        <CustomButton buttonText='Export as Text' buttonColor={'darkblue'} textColor={'white'} onPress={() => Expoerter.ctcgExportHandler('-', value, name, rank, info, effect, power, id, date)}></CustomButton>
                     </View>
 
 
@@ -208,7 +240,7 @@ export default function MainScreen() {
                     <StrokedText text={id.toUpperCase()} top={954} left={47} fontSize={15} strokeWidth={0} font='Bahnschrift'/>
                     <StrokedText text={`${date} - © CHAOS TCG - PT-BR`} top={972} left={47} fontSize={15} strokeWidth={0} font='Bahnschrift'/>
                 </ImageBackground>    
-                <Image style={{position: 'absolute', height: Number(zoom), width: Number(zoom), top: Number(yPos), left: Number(xPos)}} source={require('../assets/test.png')}></Image>
+                <Image style={{position: 'absolute', height: Number(images[value].height), width: Number(images[value].width)}} source={{uri: croppedImage}}></Image>
             </View>
 
 
