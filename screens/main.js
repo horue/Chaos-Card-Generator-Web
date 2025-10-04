@@ -129,7 +129,7 @@ export default function MainScreen() {
                         <Text style={[styles.header]}>Images</Text>
 
 
-
+                        <View style={styles.cropperContainer}>
                         <Cropper
                             image={imageUri}
                             crop={crop}
@@ -138,8 +138,8 @@ export default function MainScreen() {
                             onCropChange={setCrop}
                             onCropComplete={onCropComplete}
                             onZoomChange={setZoom}
-                            style={styles.contentContainer}
                         />
+                        </View>
                         <CustomButton buttonText='Upload Image' buttonColor={'darkblue'} textColor={'white'} onPress={() => handleImageUpdate()}></CustomButton>
 
 
@@ -149,22 +149,6 @@ export default function MainScreen() {
                             <CustomButton buttonText='+' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setZoom(zoom+1)}></CustomButton>
                             <CustomButton buttonText='-' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setZoom(zoom-1)}></CustomButton>
                         </View>
-
-                        <Text>Y Position</Text>
-                        <TextInput style={[styles.inputBox]}></TextInput>
-                        <View style={[{flexDirection: 'row', justifyContent: 'space-between'}]}>
-                            <CustomButton buttonText='+' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setY(yPos+1)}></CustomButton>
-                            <CustomButton buttonText='-' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setY(yPos-1)}></CustomButton>
-                        </View>
-
-                        <Text>X Position</Text>
-                        <TextInput style={[styles.inputBox]}></TextInput>
-                        <View style={[{flexDirection: 'row', justifyContent: 'space-between'}]}>
-                            <CustomButton buttonText='+' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setX(xPos+1)}></CustomButton>
-                            <CustomButton buttonText='-' buttonColor={'darkblue'} textColor={'white'} style={{ width: "49%"}} onPress={() => setX(xPos-1)}></CustomButton>
-                        </View>
-
-
                     </View>
 
                     <View style={[styles.contentContainer]}>
@@ -330,5 +314,12 @@ const styles = StyleSheet.create({
         fontSize: 26,
         color: 'white',
         fontFamily: 'Mongolian Baiti'
+    },
+    cropperContainer: {
+        padding: 34,
+        gap: 12,
+        backgroundColor: '#d6e2ff',
+        borderRadius: 20,
+        height: 450,
     },
 });
