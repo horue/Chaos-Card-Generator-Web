@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TextInput, ImageBackground, CheckBox, ScrollView, Image } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
-import { useState } from 'react';
+import { useState, useRef  } from 'react';
 import Cropper from 'react-easy-crop'
 import { StrokedText } from '../components/strokedtext';
 import { CustomButton } from '../components/button';
@@ -9,8 +9,10 @@ import { images } from '../lists/elements';
 import { Expoerter } from '../modules/export';
 import { CardImage } from '../modules/image';
 import { getCroppedImg } from '../modules/crop';
+import { Downloader } from '../modules/download';
 
 export default function MainScreen() {
+    const viewRef = useRef(null);
     const [name, setName] = useState(' ');
     const [effect, setEffect] = useState(' ');
     const [rank, setRank] = useState(' ');
@@ -174,13 +176,16 @@ export default function MainScreen() {
                         <Text>Card ID</Text>
                         <TextInput style={[styles.inputBox]}  onChangeText={setId} value={id}></TextInput>
 
+                        <CustomButton buttonText='Generate ID' buttonColor={'darkblue'} textColor={'white'} onPress={() => Downloader.downloadCard(viewRef, "card.png")}></CustomButton>
+
+
 
                         <Text>Card Date</Text>
                         <TextInput style={[styles.inputBox]} onChangeText={setDate} value={date}></TextInput>
                     </View>
 
                     <View style={[styles.contentContainer]}>
-                        <CustomButton buttonText='Download' buttonColor={'darkblue'} textColor={'white'}></CustomButton>
+                        <CustomButton buttonText='Download' buttonColor={'darkblue'} textColor={'white'} onPress={() => Downloader.downloadCard(viewRef, `${name}.png`)}></CustomButton>
                         <CustomButton buttonText='Export as Text' buttonColor={'darkblue'} textColor={'white'} onPress={() => Expoerter.ctcgExportHandler('-', value, name, rank, info, effect, power, id, date)}></CustomButton>
                     </View>
 
@@ -215,8 +220,8 @@ export default function MainScreen() {
             </ScrollView>
 
 
-            <View style={{flex: 2, backgroundColor: 'darkblue', paddingLeft: 60}}>
-                <ImageBackground style={[styles.card,{zIndex: 2}]} source={images[value]} resizeMode='contain'>
+            <View style={{flex: 2, backgroundColor: 'darkblue', paddingLeft: 60}} ref={viewRef}>
+                <ImageBackground style={[styles.card,{zIndex: 2}]} source={images[value]} resizeMode='contain' id="card-frame">
                     <StrokedText text={name} top={54} left={41} fontSize={37} strokeWidth={6} font='Mongolian Baiti'/>
                     <StrokedText text={rank} top={42} left={643+Number(xOffset)} fontSize={55} strokeWidth={6} font='Mongolian Baiti'/>
                     <StrokedText text={info} top={617} left={40} fontSize={38} strokeWidth={4} font='Mongolian Baiti'/>
