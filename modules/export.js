@@ -1,6 +1,20 @@
 export class Expoerter{
   static ctcgExportHandler = (supertype, element, name, rank, info, effect, power, id, date) => {
-    const content = `Superype: ${supertype}\nElement: ${element}\nName: ${name}\nRank: ${rank}\nCard Info: ${info}\nCard Effect: ${effect}\nPower: ${power}\nId: ${id}\nDate: ${date}`;
+    const content = JSON.stringify(
+      {
+        supertype,
+        element,
+        name,
+        rank,
+        info,
+        effect,
+        power,
+        id,
+        date
+      },
+      null,
+      2
+    );
     const filename = `${name}.ctcg`;
 
     const blob = new Blob([content], { type: 'text/plain' });
