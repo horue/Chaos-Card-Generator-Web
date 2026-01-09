@@ -1,14 +1,15 @@
 export class DateBuilder{
   static build = () => {
-    date = new Date()
-    month = date.getMonth()
+    const date = new Date()
+    const month = date.getMonth()
+    let semester
     if( month <= 5){
-        semester = '1'
+        semester = 1
     }
     else{
-        semester = '2'
+        semester = 2
     }
-    year = date.getFullYear()
-    finalDate = `${year}.${semester}`
+    const year = date.getFullYear()
+    return `${year}.${semester}`
   };
 }
