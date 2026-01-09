@@ -11,6 +11,9 @@ import { CardImage } from '../modules/image';
 import { getCroppedImg } from '../modules/crop';
 import { Downloader } from '../modules/download';
 import { Id } from '../modules/cardId';
+import { DateBuilder } from '../modules/date';
+import { CTCG } from '../modules/ctcg.mjs';
+import { Icon } from '../lists/inlineIcons';
 
 export default function MainScreen() {
     const viewRef = useRef(null);
@@ -70,6 +73,24 @@ export default function MainScreen() {
         setCroppedImage(null)
     }
 
+    const handleImport = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const imported = await CTCG.import(file);
+
+        setValue(imported.element)
+        setName(imported.name ?? '');
+        setEffect(imported.effect ?? '');
+        setRank(imported.rank ?? '');
+        setPower(imported.power ?? '');
+        setInfo(imported.info ?? '');
+        setId(imported.id ?? '');
+        setDate(imported.date ?? '');
+        setCroppedImage(null);
+    };
+
+
     const [crop, setCrop] = useState({ x: 0, y: 0 })
     const [cropperZoom, setCropperZoom] = useState(1)
     const [croppedImage, setCroppedImage] = useState(null)
@@ -81,7 +102,6 @@ export default function MainScreen() {
     const cropped = await getCroppedImg(imageUri, croppedAreaPixels);
     setCroppedImage(cropped); // aqui a preview é atualizada em tempo real
     };
-
 
 
   return (
@@ -194,6 +214,8 @@ export default function MainScreen() {
                         <CustomButton buttonText='Export all' buttonColor={'darkblue'} textColor={'white'} onPress={() =>  {Downloader.downloadCard(viewRef, `${name}.png`); Expoerter.ctcgExportHandler('-', value, name, rank, info, effect, power, id, date)}}></CustomButton>
                     </View>
 
+                    <CustomButton buttonText="Import card" buttonColor="darkblue" textColor="white" onPress={() => CTCG.filePicker(handleImport )}/>
+                    <Icon.Opt size={50}/>
 
 
                     <View style={[styles.contentContainer]}>
@@ -232,8 +254,8 @@ export default function MainScreen() {
                     <StrokedText text={info} top={617} left={40} fontSize={38} strokeWidth={4} font='Mongolian Baiti'/>
                     <StrokedText text={effect} top={673} left={53} fontSize={24} strokeWidth={4} font='Mongolian Baiti'/>
                     <StrokedText text={power} top={905} left={647} fontSize={50} strokeWidth={5} font='Mongolian Baiti'/>
-                    <StrokedText text={id.toUpperCase()} top={954} left={47} fontSize={15} strokeWidth={0} font='Bahnschrift'/>
-                    <StrokedText text={`${date} - © CHAOS TCG - PT-BR`} top={972} left={47} fontSize={15} strokeWidth={0} font='Bahnschrift'/>
+                    <StrokedText text={`${id}`.toUpperCase()} top={954} left={47} fontSize={15} strokeWidth={0} font='Bahnschrift'/>
+                    <StrokedText text={`${DateBuilder.build()} - © CHAOS TCG - PT-BR`} top={972} left={47} fontSize={15} strokeWidth={0} font='Bahnschrift'/>
                 </ImageBackground>    
                 <Image style={{position: 'absolute', height: Number(images[value].height), width: Number(images[value].width)}} source={{uri: croppedImage}}></Image>
             </View>
