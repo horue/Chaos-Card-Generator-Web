@@ -5,5 +5,7 @@ export const images = {
     'typeless': require('../assets/template_typeless.png'),
     'grass': require("../assets/template_grass.png"),
     'fire': require("../assets/template_fire.png"),
+    'light': require("../assets/template_light.png"),
+    'rock': require("../assets/template_rock.png")
 
 };
