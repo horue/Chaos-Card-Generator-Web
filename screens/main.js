@@ -70,13 +70,13 @@ export default function MainScreen() {
 
 
     const clearAll = () => {
-        setName(' ')
-        setEffect(' ')
-        setRank(' ')
-        setPower(' ')
-        setInfo(' ')
-        setId(' ')
-        setDate(' ')
+        setName('')
+        setEffect('')
+        setRank('')
+        setPower('')
+        setInfo('')
+        setId('')
+        setDate('')
         setCroppedImage(null)
     }
 
