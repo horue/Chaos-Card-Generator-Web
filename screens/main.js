@@ -15,10 +15,12 @@ import { DateBuilder } from '../modules/date';
 import { CTCG } from '../modules/ctcg.mjs';
 import { Icon } from '../lists/inlineIcons';
 
+import { FullArt } from '../lists/labeld_supertype.js';
+
 export default function MainScreen() {
     const viewRef = useRef(null);
     const [name, setName] = useState('');
-    const [effect, setEffect] = useState(' ');
+    const [effect, setEffect] = useState('');
     const [rank, setRank] = useState(' ');
     const [power, setPower] = useState(' ');
     const [info, setInfo] = useState(' ');
@@ -37,18 +39,23 @@ export default function MainScreen() {
     const [xOffset, setXOffset] = useState('0');
     const [isSelected, setSelection] = useState(false);
 
-
+    const [supertypeOpen, setSupertypeOpen] = useState(false);
+    const [supertypeValue, setSupertypeValue] = useState('typeless');
+    const [supertypeItems, setSupertypeItems] = useState([
+    { label: 'Spell', value: 'spell' },
+    { label: 'Creature', value: 'creature' },
+    ]);
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState('typeless');
-    const [items, setItems] = useState([
-        {label: 'Typeless', value: 'typeless'},
-        {label: 'Fire', value: 'fire'},
-        {label: 'Water', value: 'nameless'},
-        {label: 'Grass', value: 'grass'},
-        {label: 'Dark', value: 'dark'},
-        {label: 'Light', value: 'light'},
-        {label: 'Rock', value: 'rock'}
-    ]);
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+    if (supertypeValue === 'creature') {
+        setItems(FullArt.creatures);
+    } else {
+        setItems(FullArt.spell);
+    }
+    }, [supertypeValue]);
 
 
 
@@ -120,6 +127,13 @@ export default function MainScreen() {
 
                         <Text>Supertype</Text>
                         <DropDownPicker
+                            zIndex={9999}
+                            open={supertypeOpen}
+                            value={supertypeValue}
+                            items={supertypeItems}
+                            setOpen={setSupertypeOpen}
+                            setValue={setSupertypeValue}
+                            setItems={setSupertypeItems}
                         />
 
                         <Text>Card Element</Text>
